@@ -88,6 +88,9 @@ public final class PlaywrightSetup extends SlimFixture {
     }
 
     public void closeBrowser() {
+        for (BrowserContext ctx : browser.contexts()) {
+            ctx.close();
+        }
         browser.close();
     }
 
